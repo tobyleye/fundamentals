@@ -82,5 +82,3 @@ export default function App() {
     </div>
   );
 }
-
-// Tell the devil i said hey when you get back to where you from
