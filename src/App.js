@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import * as React from "react";
 import "./styles.css";
+
+const { useState } = React;
 
 const Accordion = ({ title, rules, open = false }) => {
   const [show, setShow] = useState(open);
@@ -64,6 +66,26 @@ const rules = {
     "If Infinity is multiplied by Infinity, the result is Infinity.",
     "If either operand isnt a number it is converted to a number behind the scenes and the other rules rules are applied"
   ]
+};
+
+const ButtonGroup = ({ children, selected = [], mode, onClick, style }) => {
+  const getClassName = (index) => {
+    if (!Array.isArray(selected)) {
+      selected = [selected];
+    }
+    return selected.includes(index) ? "active" : "";
+  };
+
+  return (
+    <div className="btn-group" style={style}>
+      {React.Children.map(children, (child, index) => {
+        return React.cloneElement(child, {
+          className: getClassName(index),
+          onClick: (evt) => typeof onClick === "function" && onClick(index, evt)
+        });
+      })}
+    </div>
+  );
 };
 
 export default function App() {
