@@ -71,7 +71,7 @@ export default function App() {
     <div className="App">
       <header>
         <h1>Javascript Common Operators Gotchas</h1>
-        <p>Extracted from Proffesional Javascript for Web Developers</p>
+        <p>Extracted from Professional Javascript for Web Developers</p>
       </header>
 
       <div>
